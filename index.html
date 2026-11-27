@@ -435,7 +435,6 @@ const SUPABASE_ANON_KEY = "sb_publishable_Xy8mTWG0Bde9JNbKrTnpdQ_Yg6o3zFB";
     const a = artistById(id), box = $("detailBody");
     if (!a){ box.innerHTML = loaded.artists ? `<p class="muted">ไม่พบนักวาดคนนี้</p>` : `<p class="muted">กำลังโหลด…</p>`; return; }
     const conds = String(a.conditions||"").split(/\n+/).map(s => s.trim()).filter(Boolean);
-    const taken = takenFor(a.id);
     const left = remainingFor(a), p = phase().key;
     const imgs = a.images||[];
     box.innerHTML = `
@@ -460,8 +459,6 @@ const SUPABASE_ANON_KEY = "sb_publishable_Xy8mTWG0Bde9JNbKrTnpdQ_Yg6o3zFB";
           </dl>
           <a class="btn" href="#book" data-pick="${esc(a.id)}" ${left === 0 || p === "closed" ? 'aria-disabled="true" style="pointer-events:none;opacity:.45"' : ""}>
             ${left === 0 ? "คิวเต็มแล้ว" : p === "pre" ? "ไปหน้ากรอกจอง (ยังไม่เปิด)" : p === "closed" ? "ปิดรับแล้ว" : "จองนักวาดคนนี้"}</a>
-          <h3>รายชื่อที่จองแล้ว</h3>
-          ${taken.length ? `<ul class="booked-list">${taken.map(s => `<li><span class="slotno">คิว ${s.slotNo}</span><span>${esc(s.penName)} <span class="muted">· ${esc(s.novel)}</span></span></li>`).join("")}</ul>` : `<p class="muted small">ยังไม่มีคนจอง</p>`}
         </div>
       </div>`;
   }
