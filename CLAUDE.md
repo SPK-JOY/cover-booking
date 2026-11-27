@@ -9,7 +9,7 @@ The people asking for changes are the SparkJoy marketing team, not developers. R
 2. Ask a question if the request is unclear. Otherwise make only the requested change.
 3. Commit and open a pull request into `main`. Title in Thai, saying what changed.
 4. Wait for the Vercel preview (the Vercel bot comments the URL on the PR), then send the preview link and one line on what changed. Login does not work on preview URLs, so they can only check how the page looks.
-5. Merge only when the user clearly says so (e.g. "ขึ้นจริง", "โอเค ปล่อยเลย"). Then check https://booking.sparkjoy.in.th shows the change.
+5. Merge only when the user clearly says so (e.g. "ขึ้นจริง", "โอเค ปล่อยเลย"). After merging, do not fetch or poll the live site (Vercel's bot check blocks it, so you will wait forever). Tell the user it goes live in about 1 minute and to open https://booking.sparkjoy.in.th to check.
 
 If the live page is broken: open a PR that reverts the last merge, and merge it once the user agrees.
 
