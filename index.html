@@ -442,7 +442,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_Xy8mTWG0Bde9JNbKrTnpdQ_Yg6o3zFB";
       <div class="detail">
         <div class="panel">
           <div><h2>${esc(a.name)}</h2>
-            ${a.link ? `<a href="${esc(/^https?:\/\//i.test(a.link) ? a.link : "https://" + a.link)}" target="_blank" rel="noopener" class="small">${esc(a.link)}</a>` : ""}</div>
+            ${a.link ? `<span class="small muted">ลิงก์ผลงาน:</span> <a href="${esc(/^https?:\/\//i.test(a.link) ? a.link : "https://" + a.link)}" target="_blank" rel="noopener" class="small">${esc(a.link)}</a>` : ""}</div>
           <div class="tags">${(a.tags||[]).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
           <h3>ผลงาน</h3>
           ${imgs.length ? `<div class="gallery">${imgs.map(i => `<img src="${blobUrl(i)}" alt="ผลงานของ ${esc(a.name)}" loading="lazy" data-zoom="${esc(i)}">`).join("")}</div>`
