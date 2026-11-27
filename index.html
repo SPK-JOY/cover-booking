@@ -421,7 +421,6 @@ const SUPABASE_ANON_KEY = "sb_publishable_Xy8mTWG0Bde9JNbKrTnpdQ_Yg6o3zFB";
         ${coverHtml(a, "thumb")}
         <div class="card-body">
           <h3>${esc(a.name)}</h3>
-          ${a.price || a.turnaround ? `<span class="small muted">${esc([a.price, a.turnaround].filter(Boolean).join(" · "))}</span>` : ""}
           <div class="tags">${(a.tags||[]).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
           ${meterHtml(a)}
         </div>
@@ -453,8 +452,6 @@ const SUPABASE_ANON_KEY = "sb_publishable_Xy8mTWG0Bde9JNbKrTnpdQ_Yg6o3zFB";
           <h3>คิวที่รับรอบนี้</h3>
           ${meterHtml(a)}
           <dl class="kv">
-            <dt>ราคา</dt><dd>${esc(a.price || "–")}</dd>
-            <dt>ระยะเวลา</dt><dd>${esc(a.turnaround || "–")}</dd>
             <dt>รับทั้งหมด</dt><dd>${Number(a.slots)||0} ปก</dd>
           </dl>
           <a class="btn" href="#book" data-pick="${esc(a.id)}" ${left === 0 || p === "closed" ? 'aria-disabled="true" style="pointer-events:none;opacity:.45"' : ""}>
